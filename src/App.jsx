@@ -21,7 +21,7 @@ function App() {
       ),
     {
       refetchOnWindowFocus: false,
-      staleTime: 300 * 1000,
+      staleTime: Infinity,
       keepPreviousData: true
     }
   )
@@ -31,13 +31,12 @@ function App() {
     async () => {
       if (token) {
         const { retorno } = await getPDF(token)
-        // console.log(retorno)
         return retorno
       }
     },
     {
       refetchOnWindowFocus: false,
-      staleTime: 600 * 1000,
+      staleTime: Infinity,
       keepPreviousData: true
     }
   )
@@ -73,8 +72,7 @@ function App() {
     )
   }
 
-  return <div className='App'>{pdf && showPDF()}</div>
+  return <div className='App'>{showPDF()}</div>
 }
 
 export default App
-
